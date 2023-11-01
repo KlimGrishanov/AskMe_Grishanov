@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row main">
+        <h2>Questions</h2>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'index' %}">Newest</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'hot' %}">Hot</a>
+          </li>
+        </ul>
+        <button class="btn create"><a href="{% url 'ask' %}">Create ques</a></button>
+  </div>
+    {% for question in questions %}
+       {% include 'components/short-question-item.html' %}
+    {% endfor %}
+
+    <div class="row">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layouts/out-base.html' %}
+
+
+{% block content %}
+<div class="row main">
+                <h2>Registration</h2>
+            </div>
+<div class="row">
+    <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+    </div>
+</div>
+<div class="row">
+    <div class="margin20">
+        <span>Login</span>
+        <input type="text" class="form-control margin10" maxlength="20" placeholder="Login">
+    </div>
+</div>
+<div class="row">
+    <div class="margin20">
+        <span>Email</span>
+        <input type="email" class="form-control margin10" maxlength="20" placeholder="Email">
+    </div>
+</div>
+<div class="row">
+    <div class="margin20">
+        <span>Nickname</span>
+        <input type="text" class="form-control margin10" maxlength="20" placeholder="Nickname">
+    </div>
+</div>
+<div class="row">
+    <div class="margin20">
+        <span>Password</span>
+        <input type="password" class="form-control margin10" maxlength="20" placeholder="Password">
+    </div>
+</div>
+<div class="row">
+    <div class="margin20">
+        <span>Repeat password</span>
+        <input type="password" class="form-control margin10" maxlength="20" placeholder="Repeat password">
+    </div>
+</div>
+<div class="row">
+    <div class="margin20">
+        <form action="/upload" method="post" enctype="multipart/form-data" class="signup-form">
+            <input type="file" name="image" id="image" class="signup-fileinput" val>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <button class="btn">Register</button>
+</div>
+{% endblock %}

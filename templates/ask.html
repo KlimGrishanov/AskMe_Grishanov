@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+
+<div class="row main">
+                <h2>Create Ques</h2>
+            </div>
+<div class="row create-form">
+                <div class="alert alert-danger" role="alert">
+                    A simple danger alert—check it out!
+                </div>
+                <div class="mb-3 base-input">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control"maxlength="70">
+                </div>
+                <div class="mb-3" style="margin-top: 30px">
+                    <label for="exampleFormControlTextarea1" class="form-label">Text of Ques</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                </div>
+                <div class="mb-3" style="margin-top: 30px">
+                    <label class="form-label">Tags</label>
+                    <input type="text" class="form-control" maxlength="70">
+                </div>
+                <button class="btn">Answer</button>
+            </div>
+
+{% endblock %}

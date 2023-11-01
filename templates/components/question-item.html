@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="row question-card">
+    <div class="left-part-card">
+        <img class="avatar-ques" src="{% static 'img/ava.png' %}">
+        <div class="vote">
+            <p><input type="number" name="like" value="5" min="0" max="100" step="1"></p>
+        </div>
+    </div>
+    <div class="card-text">
+        <h4>{{ question.title }}</h4>
+        <div class="text">
+            <span class="text">{{ question.content }}</span>
+        </div>
+        <div class="tag-block">
+            <span>Tags: </span>
+            <a href="/tags">Perl</a>
+        </div>
+    </div>
+</div>

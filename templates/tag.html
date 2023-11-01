@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row main">
+        <h2>Questions</h2>
+        <a href="{% url 'ask' %}"><button class="btn create" style="margin-left: 540px;">Create ques</button></a>
+      </div>
+      <div class="row">
+        <span>By Tag: </span>
+        <button class="btn">Python</button>
+      </div>
+        {% for question in questions %}
+        {% include 'components/short-question-item.html' %}
+        {% endfor %}
+        <div class="row">
+            <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="{% url 'tags' %}?page={{ prevpage }}">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="{% url 'hot' %}?page={{ page }}">{{ page }}</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="{% url 'tags' %}?page={{ nextpage }}">Next</a>
+                </li>
+            </ul>
+        </div>
+{% endblock %}
