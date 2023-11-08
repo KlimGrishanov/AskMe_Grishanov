@@ -1,3 +1,7 @@
+{
+color: #FFFFFF;
+}
+
 body {
     background-color: #050914;
     color: #FFFFFF;
@@ -45,6 +49,7 @@ body {
 }
 
 .search{
+    color: #FFFFFF;
     outline: 0;
     margin-top: 12px;
     width: 600px;
@@ -56,11 +61,13 @@ body {
 }
 
 .btn_func{
+    color: #FFFFFF;
     font-size: 14px;
     font-weight: 400;
 }
 
 .search_btn{
+        color: #FFFFFF;
     border: none;
     width: 130px;
     height: 48px;
@@ -74,7 +81,6 @@ body {
     margin-top: 10px;
     flex-shrink: 0;
     border-radius: 10px;
-    display: flex;
     background: #161B28;
 }
 
@@ -110,16 +116,9 @@ body {
     overflow: hidden;
 }
 
-.margin20 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.margin10 {
-    margin-top: 10px;
-}
 
 .btn {
+    color: #FFFFFF;
     margin-top: 10px;
     margin-bottom: 15px;
     border-radius: 10px;
@@ -150,7 +149,7 @@ body {
 }
 
 .vote {
-    margin-left: 60px;
+    margin-left: 40px;
     margin-top: 10px;
     color: black;
 }
@@ -168,13 +167,8 @@ body {
     z-index:100;
 }
 
-.main {
-    display: flex;
-}
-
 .nav-pills {
     margin-left: 30px;
-    margin-top: 18px;
 }
 
 .nav-link {
@@ -188,12 +182,12 @@ body {
     color: #FFFFFF;
 }
 
-.create {
-    margin-left: 360px;
-    margin-top: 20px;
+.nav-pills {
+    margin-top: 0;
 }
 
 .card-text-ques {
+    color: #FFFFFF;
     margin-left: 20px;
     margin-top: 25px;
     width: 600px;
@@ -203,24 +197,51 @@ body {
     margin-top: 15px;
 }
 
-.answer {
-    margin-top: 50px;
+.input-base{
+    color: #FFFFFF;
+    background-color: #161B28;
+    outline: 0;
+    margin-top: 12px;
+    width: 300px;
+    height: 48px;
+    border-radius: 10px;
+    padding-left: 16px;
+    margin-left: -15px;
+    border: #161B28;
+}
+
+.textarea-base{
+    color: #FFFFFF;
+    background-color: #161B28;
+    outline: 0;
+    margin-top: 12px;
+    width: 100%;
+    min-height: 48px;
+    border-radius: 10px;
+    padding-left: 16px;
+    margin-left: -15px;
+    border: #161B28;
 }
 
 .form-control {
-    max-width: 100%;
-    max-height: 300px;
-    background-color: #161B28;
-    border: none;
     color: #FFFFFF;
-
+    outline: 0;
+    margin-top: 12px;
+    width: 880px;
+    height: 48px;
+    border-radius: 10px;
+    padding-left: 16px;
+    margin-left: -15px;
+    border: #161B28;
 }
+
 
 .base-input {
     width: 500px;
 }
 
 .login-form {
+    color: #FFFFFF;
     width: 300px;
 }
 
@@ -261,4 +282,15 @@ footer {
     height: 150px;
     border-radius: 10px;
     background-color: white;
+}
+
+.create {
+    margin-left: 370px;
+    width: 130px;
+    height: 40px;
+}
+
+.page-link{
+    color: #000000;
+    background-color: #161B28;
 }
