@@ -1,13 +1,15 @@
 {% load static %}
 
 <div class="row answer-card">
-    <div class="left-part-card">
+    <div class="col-3 left-part-card">
         <img class="avatar-ques" src="{% static 'img/ava.png' %}">
         <div class="vote">
-            <p><input type="number" name="like" value="5" min="0" max="100" step="1"></p>
+            <button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-up"></i></button>
+            <span style="color: #FFFFFF">123</span>
+            <button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-down"></i></button>
         </div>
     </div>
-    <div class="card-text-ques">
+    <div class="col-9 card-text-ques">
         <h4>{{ answer.title }}</h4>
         <div class="text-ques">
             <span class="text">{{ answer.content }}</span>
