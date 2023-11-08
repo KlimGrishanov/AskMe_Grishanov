@@ -1,38 +1,24 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 
-
-
 {% block content %}
-    <div class="row main">
-        <h2>{{ question.title }}</h2>
+<div class="row main">
+    <h2>{{ question.title }}</h2>
+</div>
+{% include 'components/question-item.html' %}
+<div class="row mt-4">
+    <h4>Answers:</h4>
+</div>
+{% for answer in answers %}
+        {% include 'components/answer-item.html' %}
+{% endfor %}
+{% include 'components/pagination.html' %}
+<div class="row answer">
+    <div class="col-8 mb-3">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Enter your answer here..."></textarea>
     </div>
-    {% include 'components/question-item.html' %}
-
-    {% for answer in answers %}
-            {% include 'components/answer-item.html' %}
-    {% endfor %}
-    <div class="row">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-            <div class="row answer">
-                <div class="mb-3">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Enter your answer here..."></textarea>
-                </div>
-                <button class="btn">Answer</button>
-            </div>
+</div>
+<div class="row col-2">
+        <button class="btn" style="">Answer</button>
+</div>
 {% endblock %}
