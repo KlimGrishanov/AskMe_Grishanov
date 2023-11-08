@@ -1,6 +1,10 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 
+{% block auth %}
+    {% include 'components/auth-user.html' %}
+{% endblock %}
+
 {% block content %}
 <div class="main">
     <div class="row">
@@ -24,7 +28,7 @@
 </div>
 <div class="row">
     <div class="col-4">
-        <span>By Tag: </span><button class="btn">Python</button>
+        <span>By Tag: </span><button class="btn">{{ curTag }}</button>
     </div>
 </div>
 {% for question in questions %}
