@@ -1,27 +1,5 @@
+{% extends 'components/question-item.html' %}
 {% load static %}
-
-<div class="row question-card">
-    <div class="col-3">
-        <div class="left-part-card">
-        <img class="avatar-ques" src="{% static 'img/ava.png' %}">
-        <div class="vote">
-            <button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-up"></i></button>
-            <span style="color: #FFFFFF">123</span>
-            <button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-down"></i></button>
-        </div>
-    </div>
-    </div>
-    <div class="col-9">
-    <div class="card-text">
-        <h4>{{ question.title }}</h4>
-        <div class="text">
-            <span class="text">{{ question.content }}</span>
-        </div>
-        <div class="tag-block">
-            <span>Tags: </span>
-            <a href="/tags">Perl</a>
-        </div>
-        <a href="/question/{{ question.id }}"><button class="btn">Open Ques (5)</button></a>
-    </div>
-    </div>
-</div>
+{% block answer-btn %}
+<a href="/question/{{ question.id }}"><button class="btn">Open Ques (5)</button></a>
+{% endblock %}

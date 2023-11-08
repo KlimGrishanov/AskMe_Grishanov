@@ -1,0 +1,16 @@
+{% load static %}
+
+<h3>Popular Tags</h3>
+<div>
+    {% for tag in tags %}
+        <a href="/tags/?tag={{ tag.id }}"><button class="btn">{{ tag.name }}</button></a>
+    {% endfor %}
+</div>
+<h3>Best Members</h3>
+<div class="best-members">
+    {% for member in members %}
+        <div>
+            <a href="#">{{ member.name }}</a>
+        </div>
+    {% endfor %}
+</div>

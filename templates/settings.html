@@ -1,6 +1,10 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 
+{% block auth %}
+    {% include 'components/auth-user.html' %}
+{% endblock %}
+
 {% block content %}
 <div class="row main">
     <h2>Settings</h2>

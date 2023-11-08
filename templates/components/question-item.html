@@ -17,8 +17,10 @@
                 </div>
                 <div class="tag-block">
                     <span>Tags: </span>
-                    <a href="/tags">Perl</a>
+                    <a href="/tags/?tag={{ question.tagId }}">{{ question.tag }}</a>
                 </div>
+                {% block answer-btn %}
+                {% endblock %}
             </div>
     </div>
 </div>

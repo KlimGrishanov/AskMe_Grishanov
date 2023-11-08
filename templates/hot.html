@@ -1,5 +1,8 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% block auth %}
+    {% include 'components/auth-user.html' %}
+{% endblock %}
 {% block content %}
 
 <div class="main">
