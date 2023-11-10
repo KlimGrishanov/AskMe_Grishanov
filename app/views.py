@@ -37,54 +37,32 @@ QUESTIONS = [
 
 PER_PAGE = 10
 
-def paginate(objects, page, per_page=PER_PAGE):
+def paginate(objects, request, per_page=PER_PAGE):
+    page = int(request.GET.get('page', 1))
     paginator = Paginator(objects, per_page)
-    return paginator.page(page)
+    if page > len(objects) / per_page or page < 1:
+        return paginator.page(1), 1
+    return paginator.page(page), page
 
 # Create your views here.
 def index(request):
-    page = request.GET.get('page', 1)
-    try:
-        page = int(page)
-    except Exception:
-        return render(request, '404.html')
-
-    if page < 1 or page > len(QUESTIONS) / PER_PAGE:
-        return render(request, 'index.html')
-
-    return render(request, 'index.html', {'questions': paginate(QUESTIONS, page), 'tags': TAGS, 'members': MEMBERS})
+    currentPage, pageNum = paginate(QUESTIONS, request)
+    return render(request, 'index.html', {'questions': currentPage, 'tags': TAGS, 'members': MEMBERS, 'curPage': pageNum, 'prevPage': pageNum-1, 'nextPage': pageNum+1, 'symbolRoute': "?"})
 
 
 def hot(request):
-    page = request.GET.get('page', 1)
-    try:
-        page = int(page)
-    except Exception:
-        return render(request, '404.html')
-
-    if page < 1 or page > len(QUESTIONS) / PER_PAGE:
-        return render(request, 'hot.html')
-
-    return render(request, 'hot.html', {'questions': paginate(QUESTIONS, page), 'tags': TAGS, 'members': MEMBERS})
+    currentPage, pageNum = paginate(QUESTIONS, request)
+    return render(request, 'hot.html', {'questions': currentPage, 'tags': TAGS, 'members': MEMBERS, 'curPage': pageNum, 'prevPage': pageNum-1, 'nextPage': pageNum+1, 'route': "hot", 'symbolRoute': "?"})
 
 
 def tag(request):
-    page = request.GET.get('page', 1)
     tag = request.GET.get('tag', 0)
     questions = []
     for i in range(0, len(QUESTIONS)):
         if QUESTIONS[i].get('tag') == TAGS[int(tag)].get('name'):
             questions.append(QUESTIONS[i])
-    # page = request.GET.get('page', 1)
-    # try:
-    #     page = int(page)
-    # except Exception:
-    #     return render(request, '404.html')
-    #
-    # if page < 1 or page > len(QUESTIONS) / PER_PAGE:
-    #     return render(request, 'tag.html')
-
-    return render(request, 'tag.html', {'questions': paginate(questions, page), 'tags': TAGS, 'members': MEMBERS, 'curTag': TAGS[int(tag)].get('name')})
+    currentPage, pageNum = paginate(questions, request)
+    return render(request, 'tag.html', {'questions': currentPage, 'tags': TAGS, 'members': MEMBERS, 'curTag': TAGS[int(tag)].get('name'), 'curPage': pageNum, 'prevPage': pageNum-1, 'nextPage': pageNum+1, 'route':  "tags/?tag=" + str(tag), 'symbolRoute': "&"})
 
 
 def settings(request):
@@ -92,15 +70,6 @@ def settings(request):
 
 
 def question(request, question_id):
-    page = request.GET.get('page', 1)
-    try:
-        page = int(page)
-    except Exception:
-        return render(request, '404.html')
-
-    if page < 1 or page > len(QUESTIONS) / PER_PAGE:
-        return render(request, 'index.html')
-
     question = QUESTIONS[question_id]
     answers = [
         {
@@ -109,7 +78,8 @@ def question(request, question_id):
             'content': f'Long lorem ipsum {i}'
         } for i in range(100)
     ]
-    return render(request, 'question.html', {'question': question, 'answers': paginate(answers, page), 'tags': TAGS, 'members': MEMBERS})
+    currentPage, pageNum = paginate(answers, request)
+    return render(request, 'question.html', {'question': question, 'answers': currentPage, 'tags': TAGS, 'members': MEMBERS, 'curPage': pageNum, 'prevPage': pageNum-1, 'nextPage': pageNum+1, 'route': "question/" + str(question_id), 'symbolRoute': "?"})
 
 
 def login(request):
