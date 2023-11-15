@@ -66,7 +66,7 @@ def tag(request):
 
 
 def settings(request):
-    return render(request, 'settings.html')
+    return render(request, 'settings.html', {'members': MEMBERS, 'tags': TAGS})
 
 
 def question(request, question_id):
